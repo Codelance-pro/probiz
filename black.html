@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential Tools for World-Changers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            color: white;
+            padding: 60px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        .nav-menu a {
+            color: black;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .nav-menu a:hover {
+            opacity: 1;
+        }
+
+        .cta-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .cta-button-footer {
+            background: white;
+            color: #8B5CF6;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            background: white;
+            color: #8B5CF6;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Dashboard Preview */
+        .dashboard-preview {
+            margin-top: -80px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .dashboard-image {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .dashboard-content {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .dashboard-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .dashboard-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #8B5CF6;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .features h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card-center {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover,
+        .feature-card-center:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8B5CF6, #A855F7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Built-in Expertise Section */
+        .expertise {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            color: white;
+        }
+
+        .expertise h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .expertise-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .expertise-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .expertise-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+            width: 25%;
+        }
+
+        @media (max-width: 900px) {
+  .expertise-grid {
+    flex-direction: column; /* stack cards vertically */
+  }
+
+  .expertise-card {
+    flex-direction: column; /* stack header, image, text */
+    align-items: center;
+    text-align: center;
+  }
+
+  .expertise-card p {
+    width: 100%; /* full width text */
+    margin-top: 15px;
+  }
+}
+        
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .testimonials h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #8B5CF6;
+        }
+
+        /* NEW FAQ STYLES */
+
+
+        .faq {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .faq-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .faq-header p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-content {
+            display: flex;
+            flex-direction: row;
+            gap: 60px;
+            width: 100%;
+        }
+
+        .faq-column {
+            flex: 1;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-column h3 {
+            font-size: 1.4rem;
+            color: #8B5CF6;
+            margin-bottom: 25px;
+            font-weight: 600;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-toggle {
+            background: #8B5CF6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .faq-question i {
+            color: #8B5CF6;
+            margin-right: 12px;
+            font-size: 1.2rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .faq-answer {
+            color: #6b7280;
+            padding-left: 32px;
+            line-height: 1.6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .faq-container {
+                flex-direction: column;
+                /* Header goes on top, content below */
+                text-align: center;
+            }
+
+            .faq-header {
+                margin-bottom: 30px;
+            }
+
+            .faq-content {
+                flex-direction: column;
+                gap: 40px;
+                width: 100%;
+            }
+
+            .faq-column {
+                width: 100%;
+                /* full width on mobile */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .faq {
+                padding: 60px 0;
+            }
+
+            .faq-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .faq-column {
+                padding: 25px;
+            }
+        }
+
+        /* NEW FOOTER STYLES */
+        .footer-bg {
+            background: #000;
+            padding: 80px 0 40px;
+        }
+
+        .footer-container {
+            position: relative;
+            margin-top: -150px;
+            z-index: 10;
+        }
+
+        .footer-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #A855F7;
+            border-radius: 16px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+        }
+
+        /* .footer-box h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: white;
+            line-height: 1.3;
+        }
+
+        .footer-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .footer-form input {
+            padding: 16px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .footer-form input:focus {
+            outline: none;
+            border-color: #8B5CF6;
+        }
+
+        .footer-form button {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .footer-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .footer-brand {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #8B5CF6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            color: #9ca3af;
+        }
+
+        .footer-bottom .brand {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 10px 0;
+            color: white;
+        }
+
+        .footer-bottom .brand-variant {
+            color: #8B5CF6;
+        } */
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .features h2,
+            .expertise h2,
+            .testimonials h2,
+            .faq-header h2 {
+                font-size: 2rem;
+            }
+
+            .dashboard-stats {
+                flex-direction: column;
+            }
+
+            .faq-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-box {
+                padding: 30px 20px;
+            }
+
+            .footer-box h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .footer-title {
+            font-size: clamp(1.0rem, 2.0vw, 1.5rem);
+            font-weight: 800;
+            line-height: 1.3;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .footer-form {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 900px) {
+            .footer-form {
+                justify-content: flex-start;
+            }
+        }
+
+        .footer-form input[type="email"] {
+            min-width: 270px;
+            padding: 14px 16px;
+            border-radius: 999px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, .15);
+            color: #fff;
+        }
+
+        .footer-form input::placeholder {
+            color: rgba(255, 255, 255, .85);
+        }
+
+        .cta-button-footer {
+            background: #fff;
+            color: var(--purple-500);
+            padding: 12px 20px;
+            border-radius: 999px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .cta-button-footer:hover {
+            background: #f3f4f6;
+        }
+
+        .footer-brand {
+            margin-top: 10px;
+            font-size: clamp(2rem, 10vw, 6.5rem);
+            font-weight: 900;
+            letter-spacing: .08em;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #cbd5e1;
+            margin-top: 28px;
+            font-size: .95rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">Probiz</div>
+                <ul class="nav-menu">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#" class="cta-button">Get Started</a>
+            </nav>
+
+            <div class="hero">
+                <h1>Essential tools for<br>world-changers</h1>
+                <p>Powerful analytics and insights to help nonprofits and social good organizations maximize their
+                    impact and reach their goals.</p>
+                <a href="#" class="hero-cta">Start your free trial</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview">
+        <div class="container">
+            <div class="dashboard-image">
+                <div class="dashboard-content">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title">Analytics Dashboard</div>
+                        <div style="color: #666;">Last updated: Today</div>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-value">$12,450</div>
+                            <div class="stat-label">Total Revenue</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2,847</div>
+                            <div class="stat-label">Active Users</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">94.2%</div>
+                            <div class="stat-label">Success Rate</div>
+                        </div>
+                    </div>
+                    <div
+                        style="background: white; height: 200px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; color: #666;">
+                        Chart Visualization Area
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Explore what's possible<br>with purpose-built<br>solution</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <h3>Powerful Fundraising</h3>
+                    <p>Advanced tools to help you reach more donors, increase engagement, and maximize donations for
+                        your cause.</p>
+                </div>
+                <div class="feature-card-center">
+                    <img class="feature-icon" src="img1.jpeg.jpg" alt="Feature 2" style="width: 100%; height: 100%;" />
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Impact Tracking</h3>
+                    <p>Measure and demonstrate your organization's impact with detailed analytics and beautiful
+                        reporting tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built-in Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <h2>Built-in expertise<br>for results</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3 style="display: flex; justify-content: center; align-items: flex-end;">K-12 Schools</h3>
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img src="img3.jpeg.jpg" alt="K-12 Schools"
+                            style="width:100%; height: 250px; border-radius: 10px;">
+                    </div>
+                    <p style="display: flex; justify-content: center; align-items: center;">Tailored solutions for
+                        educational institutions to manage student data, track performance, and
+                        engage with families effectively.</p>
+
+                </div>
+
+                <div class="expertise-card">
+                    <h3 style="display: flex; justify-content: center; align-items: flex-end;">Companies</h3>
+                    <div>
+                        <img src="img3.jpeg.jpg" alt="K-12 Schools"
+                            style="width:100%; height: 250px; border-radius: 10px;">
+                    </div>
+                    <p style="display: flex; justify-content: center; align-items: center;">Corporate social
+                        responsibility tools to help businesses make a positive impact while building
+                        stronger community relationships.</p>
+
+                </div>
+                <div class="expertise-card">
+                    <h3 style="display: flex; justify-content: center; align-items: flex-end;">Foundations</h3>
+                    <div>
+                        <img src="img3.jpeg.jpg" alt="K-12 Schools"
+                            style="width:100%; height: 250px; border-radius: 10px;">
+                    </div>
+                    <p style="display: flex; justify-content: center; align-items: center;">Grant management and
+                        philanthropic tools designed specifically for foundations and giving
+                        organizations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What customers say<br>about us</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"This platform has transformed how we manage our nonprofit. The
+                        analytics are incredible and the support team is amazing."</p>
+                    <div class="testimonial-author">Sarah Johnson, Executive Director</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"We've increased our fundraising by 150% since switching to this
+                        solution. The donor management features are game-changing."</p>
+                    <div class="testimonial-author">Michael Chen, Development Manager</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The reporting capabilities have helped us demonstrate our impact to
+                        stakeholders like never before. Highly recommended!"</p>
+                    <div class="testimonial-author">Emma Rodriguez, Program Director</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW FAQ SECTION -->
+    <section class="faq">
+        <div class="faq-container">
+            <div class="faq-header">
+                <h2>Frequently Ask Questions</h2>
+                <p>Experience intelligent, efficient and accurate about how designed to drive people.</p>
+                <button class="faq-toggle">Questions</button>
+            </div>
+
+            <div class="faq-content">
+                <!-- Column 1 -->
+                <div class="faq-column">
+                    <h3>General Questions</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            What does you do in this role more often?
+                        </div>
+                        <div class="faq-answer">
+                            I give that I'm the new employee MPI of VIB? You include teams reflecting by humanity's own
+                            networking...
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            What kind of support is available?
+                        </div>
+                        <div class="faq-answer">
+                            We provide 24/7 customer support through various channels including email, live chat, and
+                            phone.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="faq-column">
+                    <h3>Platform Questions</h3>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            How should it be unique/do you feel different?
+                        </div>
+                        <div class="faq-answer">
+                            Our platform stands out through its innovative approach to data analysis and user
+                            experience.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            Can it work if we're physically creating opportunities?
+                        </div>
+                        <div class="faq-answer">
+                            Absolutely! Our tools are designed to help you identify and capitalize on new opportunities.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- NEW FOOTER SECTION -->
+    <div class="footer-bg">
+        <section class="footer-container">
+            <div>
+                <div class="footer-box">
+                    <div style="display: flex; justify-content: space-between;">
+                        <h3 class="footer-title">Want to buy?</h3>
+
+                        <form class="footer-form"
+                            onsubmit="event.preventDefault(); alert('Thanks! We will contact you shortly.');">
+                            <input type="email" placeholder="Enter your email" required aria-label="Email address" />
+                            <button type="submit" class="cta-button-footer">Get Started</button>
+                        </form>
+                    </div>
+                    <div class="footer-brand" aria-label="Brand name">PROBIZ</div>
+                </div>
+
+
+            </div>
+    </div>
+    </section>
+    </div>
+
+    <script>
+        // Simple interactivity for FAQ items
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+
+                const icon = question.querySelector('i');
+                if (icon.classList.contains('fa-question-circle')) {
+                    icon.classList.replace('fa-question-circle', 'fa-chevron-down');
+                } else {
+                    icon.classList.replace('fa-chevron-down', 'fa-question-circle');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
