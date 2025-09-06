@@ -12,6 +12,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -28,7 +29,9 @@
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            /* background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%); */
+            background-image: url('background.png');
+            background-size: cover;
             color: white;
             padding: 60px 0 120px;
             position: relative;
@@ -74,6 +77,19 @@
             text-decoration: none;
             opacity: 0.9;
             transition: opacity 0.3s;
+            border-radius: 50px;
+        }
+
+        .nav-link {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: black;
+            border-radius: 5px;
+        }
+
+        .nav-link.active {
+            background: purple;
+            color: white;
         }
 
         .nav-menu a:hover {
@@ -325,22 +341,25 @@
         }
 
         @media (max-width: 900px) {
-  .expertise-grid {
-    flex-direction: column; /* stack cards vertically */
-  }
+            .expertise-grid {
+                flex-direction: column;
+                /* stack cards vertically */
+            }
 
-  .expertise-card {
-    flex-direction: column; /* stack header, image, text */
-    align-items: center;
-    text-align: center;
-  }
+            .expertise-card {
+                flex-direction: column;
+                /* stack header, image, text */
+                align-items: center;
+                text-align: center;
+            }
 
-  .expertise-card p {
-    width: 100%; /* full width text */
-    margin-top: 15px;
-  }
-}
-        
+            .expertise-card p {
+                width: 100%;
+                /* full width text */
+                margin-top: 15px;
+            }
+        }
+
 
         /* Testimonials */
         .testimonials {
@@ -729,10 +748,10 @@
             <nav class="nav">
                 <div class="logo">Probiz</div>
                 <ul class="nav-menu">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#features" class="nav-link active">Features</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <a href="#" class="cta-button">Get Started</a>
             </nav>
@@ -747,7 +766,7 @@
     </header>
 
     <!-- Dashboard Preview -->
-    <section class="dashboard-preview">
+    <section class="dashboard-preview" id="features">
         <div class="container">
             <div class="dashboard-image">
                 <div class="dashboard-content">
@@ -779,7 +798,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="features" id="pricing">
         <div class="container">
             <h2>Explore what's possible<br>with purpose-built<br>solution</h2>
             <div class="features-grid">
@@ -803,7 +822,7 @@
     </section>
 
     <!-- Built-in Expertise Section -->
-    <section class="expertise">
+    <section class="expertise" id="about">
         <div class="container">
             <h2>Built-in expertise<br>for results</h2>
             <div class="expertise-grid">
@@ -939,7 +958,7 @@
 
 
     <!-- NEW FOOTER SECTION -->
-    <div class="footer-bg">
+    <div class="footer-bg" id="contact">
         <section class="footer-container">
             <div>
                 <div class="footer-box">
@@ -974,6 +993,15 @@
                 } else {
                     icon.classList.replace('fa-chevron-down', 'fa-question-circle');
                 }
+            });
+        });
+
+        const links = document.querySelectorAll(".nav-link");
+
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                links.forEach(l => l.classList.remove("active"));
+                link.classList.add("active");
             });
         });
     </script>
